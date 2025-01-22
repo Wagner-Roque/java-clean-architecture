@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  postgres-db:
+    image: postgres:latest
+    container_name: postgresqlv2
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    networks:
+      - REDE1
+
+  my-pgadmin:
+    image: dpage/pgadmin4
+    container_name: my-pgadmin
+    ports:
+      - "15432:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: teste@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    networks:
+      - REDE1
+
+networks:
+  REDE1:

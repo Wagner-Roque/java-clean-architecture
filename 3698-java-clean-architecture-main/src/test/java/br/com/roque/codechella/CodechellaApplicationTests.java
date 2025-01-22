@@ -1,4 +1,4 @@
-package br.com.alura.codechella;
+package br.com.roque.codechella;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
