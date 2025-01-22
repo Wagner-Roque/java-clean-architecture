@@ -1,4 +1,4 @@
-package br.com.roque.codechella.model;
+package br.com.roque.codechella.notuse.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

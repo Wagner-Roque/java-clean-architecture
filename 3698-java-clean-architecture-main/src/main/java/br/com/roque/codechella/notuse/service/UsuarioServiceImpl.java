@@ -1,8 +1,8 @@
-package br.com.roque.codechella.service;
+package br.com.roque.codechella.notuse.service;
 
 
-import br.com.roque.codechella.model.Usuario;
-import br.com.roque.codechella.repository.UsuarioRepository;
+import br.com.roque.codechella.notuse.model.Usuario;
+import br.com.roque.codechella.notuse.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
