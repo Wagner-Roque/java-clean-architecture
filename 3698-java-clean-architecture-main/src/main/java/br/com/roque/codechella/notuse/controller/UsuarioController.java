@@ -1,8 +1,8 @@
-package br.com.roque.codechella.controller;
+package br.com.roque.codechella.notuse.controller;
 
 
-import br.com.roque.codechella.model.Usuario;
-import br.com.roque.codechella.service.UsuarioService;
+import br.com.roque.codechella.notuse.model.Usuario;
+import br.com.roque.codechella.notuse.service.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
