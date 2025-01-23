@@ -1,8 +1,10 @@
 package br.com.roque.codechella.config;
 
 import br.com.roque.codechella.application.gateways.RepositorioDeUsuario;
+import br.com.roque.codechella.application.usecases.AlterarUsuario;
 import br.com.roque.codechella.application.usecases.CadastrarUsuario;
 
+import br.com.roque.codechella.application.usecases.ExcluirUsuario;
 import br.com.roque.codechella.application.usecases.ListarUsuario;
 import br.com.roque.codechella.infra.gateways.RepositorioDeUsuarioJpa;
 import br.com.roque.codechella.infra.gateways.UsuarioEntityMapper;
@@ -20,6 +22,16 @@ public class UsuarioConfig {
     @Bean
     ListarUsuario listarUsuario(RepositorioDeUsuario listDeUsuario){
         return new ListarUsuario(listDeUsuario);
+    }
+
+    @Bean
+    AlterarUsuario alteraUsuario(RepositorioDeUsuario repositorioDeUsuario){
+        return new AlterarUsuario(repositorioDeUsuario);
+    }
+
+    @Bean
+    ExcluirUsuario excluiUsuario(RepositorioDeUsuario repositorioDeUsuario){
+        return new ExcluirUsuario(repositorioDeUsuario);
     }
 
     @Bean
