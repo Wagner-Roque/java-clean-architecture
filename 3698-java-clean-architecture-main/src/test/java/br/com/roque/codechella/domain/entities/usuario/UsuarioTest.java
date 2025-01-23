@@ -11,12 +11,12 @@ class UsuarioTest {
     @Test
      void naoDeveCadatrarUsuarioCom_CPF_NoFormatoInvalido(){
         assertThrows(IllegalArgumentException.class,
-                ()-> new Usuario("12345678999", "Tadeu", LocalDate.parse("1978-11-09"),"teste@teste.com"));
+                ()-> new Usuario( "Tadeu","12345678999", LocalDate.parse("1978-11-09"),"teste@teste.com"));
     }
     @Test
      void naoDeveCadatrarUsuarioCom_CPF_NotFound(){
         assertThrows(IllegalArgumentException.class,
-                ()-> new Usuario(" ", "Tadeu", LocalDate.parse("1978-11-09"),"teste@teste.com"));
+                ()-> new Usuario( "","Tadeu ", LocalDate.parse("1978-11-09"),"teste@teste.com"));
     }
     @Test
      void naoDeveCadatrarUsuarioCom_Email_NoFormatoInvalido(){
@@ -55,7 +55,7 @@ class UsuarioTest {
     @Test
      void deveCriarUsuarioComAFabrica(){
         FabricaUsuario fabricaUsuario = new FabricaUsuario();
-        Usuario usuario = fabricaUsuario.comNomeCpfNascimento("Tadeu", "654.123.897-88", LocalDate.parse("2012-11-20"),"teste@teste.com");
+        Usuario usuario = fabricaUsuario.comNomeCpfNascimento( "654.123.897-88", "Tadeu",LocalDate.parse("2012-11-20"),"teste@teste.com");
 
         assertEquals("Tadeu",usuario.getNome());
         usuario = fabricaUsuario.incluiEndereco("12345-999", 40, "apto XPTO");

@@ -12,7 +12,7 @@ public class ListarUsuario {
     public ListarUsuario(RepositorioDeUsuario repositorioDeUsuario) {
         this.repositorioDeUsuario = repositorioDeUsuario;
     }
-    public List<Usuario> listarTodos() {
-        return repositorioDeUsuario.listarTodos();
+    public List<Usuario> listarTodosUsuarios() {
+        return this.repositorioDeUsuario.listarTodos();
     }
 }
