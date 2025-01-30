@@ -1,0 +1,38 @@
+name: SonarCloud Analysis-java-clean-architecture
+
+on:
+  push:
+    branches:
+      - main  # Executa o workflow quando houver um push na branch main
+
+jobs:
+  build-and-analyze:
+    runs-on: ubuntu-latest  # Usa uma máquina virtual com Ubuntu
+
+    steps:
+      # Passo 1: Faz checkout do código do repositório
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Passo 2: Configura o Java (exemplo usando Java 17)
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      # Passo 3: Faz o build do projeto Java (usando Maven como exemplo)
+      - name: Build with Maven
+        run: mvn clean verify
+
+      # Passo 4: Executa a análise no SonarCloud usando a integração com o GitHub
+      - name: Run SonarCloud Analysis
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token automático do GitHub
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}    # Token do SonarCloud (gerado automaticamente)
+        run: |
+          mvn sonar:sonar \
+            -Dsonar.projectKey=SEU_PROJECT_KEY_NO_SONARCLOUD \
+            -Dsonar.organization=SEU_ORGANIZATION_NO_SONARCLOUD \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
